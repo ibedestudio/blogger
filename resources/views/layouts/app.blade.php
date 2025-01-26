@@ -19,18 +19,32 @@
             @include('layouts.navigation')
 
             <!-- Page Heading -->
-            @isset($header)
+            @if (isset($header))
                 <header class="bg-white shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
-            @endisset
+            @endif
 
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
+
+            <!-- Footer -->
+            <x-footer />
         </div>
+
+        <!-- Flash Messages -->
+        @if (session()->has('success'))
+            <div x-data="{ show: true }"
+                x-show="show"
+                x-init="setTimeout(() => show = false, 4000)"
+                class="fixed bg-green-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm"
+            >
+                <p>{{ session('success') }}</p>
+            </div>
+        @endif
     </body>
 </html>
