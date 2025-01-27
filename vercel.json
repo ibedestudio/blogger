@@ -9,11 +9,15 @@
     "routes": [
         { "src": "/(.*)", "dest": "/api/index.php" }
     ],
+    "builds": [
+        { "src": "api/index.php", "use": "vercel-php@0.4.0" },
+        { "src": "public/**", "use": "@vercel/static" }
+    ],
     "env": {
         "APP_NAME": "Laravel",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "https://ibedesblog-f1sx50asx-ibedestudios-projects.vercel.app",
+        "APP_URL": "https://ibedesblog-ktv86bx1u-ibedestudios-projects.vercel.app",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
